@@ -4,12 +4,10 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 import random
 
-# Download necessary NLTK data files
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
 
-# Predefined responses
 responses = {
     "hello": ["Hello! How can I help you today?", "Hi there! What can I do for you?", "Hey! How's it going?"],
     "bye": ["Goodbye! Have a great day!", "See you later!", "Bye! Take care!"],
@@ -18,13 +16,13 @@ responses = {
 }
 
 def preprocess_text(text):
-    # Tokenize the text
+    
     tokens = word_tokenize(text.lower())
     
-    # Remove stop words and punctuation
+    
     filtered_tokens = [word for word in tokens if word.isalnum() and word not in stopwords.words('english')]
     
-    # Lemmatize the tokens
+    
     lemmatizer = WordNetLemmatizer()
     lemmatized_tokens = [lemmatizer.lemmatize(token) for token in filtered_tokens]
     
