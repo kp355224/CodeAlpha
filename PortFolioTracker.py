@@ -2,9 +2,6 @@ import yfinance as yf
 import json
 import os
 
-# File to store portfolio data
-portfolio_file = 'portfolio.json'
-
 def load_portfolio():
     if os.path.exists(portfolio_file):
         with open(portfolio_file, 'r') as file:
@@ -48,8 +45,6 @@ def get_portfolio_value():
         total_value += price * shares
         print(f'{ticker}: {shares} shares @ ${price:.2f} each')
     print(f'Total portfolio value: ${total_value:.2f}')
-
-# Example usage
 while True:
     print("\nStock Portfolio Tracker")
     print("1. Add stock")
